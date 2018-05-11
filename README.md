@@ -4,7 +4,7 @@ In this todo application I'm learning how to store objects into Postgresql table
 ### View Project
 1. Download repo
 2. cd into to_do_without_active_record
-3. run
+3. Run the following command in your terminal
 ~~~
 $ ruby app.rb
 ~~~
