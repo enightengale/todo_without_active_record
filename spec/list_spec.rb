@@ -16,4 +16,12 @@ describe(List) do
       expect(List.all()).to(eq([]))
     end
   end
+
+  describe("#save") do
+    it("saves an instance of List into the db") do
+      test_list = List.new({:name => "cleaning", :id => nil})
+      test_list.save()
+      expect(List.all()).to(eq([test_list]))
+    end
+  end
 end
