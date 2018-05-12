@@ -13,7 +13,7 @@ class List
     db_lists.each() do |list|
       name = list.fetch("name")
       id = list.fetch("id").to_i()
-      lists.push({:name => name, :id => id})
+      lists.push(List.new({:name => name, :id => id}))
     end
      return lists
   end
