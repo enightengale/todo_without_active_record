@@ -1,8 +1,17 @@
-<h1>Todo</h1>
+<h1>Todo Application</h1>
+
+<h4>Create new List</h4>
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="name">Name of list</label>
+    <input id="name" type="text" name="name">
+    <button class="btn btn-primary btn-sm" type="submit" name="button">create</button>
+  </div>
+</form>
 
 <h4>Your Lists:</h4>
 <ul>
-  <% @lists.each() do |list| %>
-    <li><%= list.name %></li>
+  <% @lists.each() do |obj| %>
+    <li><%= obj.name() %></li>
   <% end %>
 </ul>
