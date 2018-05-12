@@ -12,6 +12,6 @@
 <h4>Your Lists:</h4>
 <ul>
   <% @lists.each() do |obj| %>
-    <li><%= obj.name() %></li>
+    <li> <a href="/lists/<%= obj.id() %>/edit"> <%= obj.name() %></a></li>
   <% end %>
 </ul>
