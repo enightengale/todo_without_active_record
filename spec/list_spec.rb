@@ -24,4 +24,13 @@ describe(List) do
       expect(List.all()).to(eq([test_list]))
     end
   end
+
+  describe("#update") do
+    it("lets you update lists in the database") do
+      list = List.new({:name => "cleaning", :id => nil})
+      list.save()
+      list.update({:name => "Homework"})
+      expect(list.name()).to(eq("Homework"))
+    end
+  end
 end

@@ -22,4 +22,10 @@ class List
     result = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
   end
+
+  def update(attributes)
+    @name = attributes.fetch(:name)
+    @id = self.id()
+    DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
+  end
 end
