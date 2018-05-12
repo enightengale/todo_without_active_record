@@ -28,7 +28,11 @@ class List
     @id = self.id()
     DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
   end
-  
+
+  def delete
+   DB.exec("DELETE FROM lists WHERE id = #{self.id()};")
+  end
+
   def self.find(id)
     found_list = nil
     List.all().each() do |list|
