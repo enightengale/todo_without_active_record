@@ -28,4 +28,14 @@ class List
     @id = self.id()
     DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
   end
+  
+  def self.find(id)
+    found_list = nil
+    List.all().each() do |list|
+      if list.id().==(id)
+        found_list = list
+      end
+    end
+    found_list
+  end
 end
