@@ -8,4 +8,10 @@
   <button class="btn btn-primary btn-sm" type="submit">Update</button>
 </form>
 
-<a href="/" style="color: white; background-color: black;" class="btn btn-sm" type="button" name="button">Back</a>
+<form action="/lists/<%= @list.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button class="btn btn-danger btn-sm" type="submit">Delete list</button>
+</form>
+
+<a href="/" style="color: white; background-color: black; margin-top: 10px;" class="btn btn-sm" type="button" name="button">Back</a>
