@@ -29,8 +29,9 @@ class List
     DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
   end
 
-  def delete
+  def delete()
    DB.exec("DELETE FROM lists WHERE id = #{self.id()};")
+   DB.exec("DELETE FROM tasks WHERE list_id = #{self.id()};")
   end
 
   def self.find(id)
@@ -41,5 +42,16 @@ class List
       end
     end
     found_list
+  end
+
+  def tasks()
+    list_tasks = []
+    tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{self.id()};")
+    tasks.each() do |task|
+      description = task.fetch("description")
+      list_id = task.fetch("list_id").to_i()
+      list_tasks.push(Task.new({:description => description, :list_id => list_id}))
+    end
+    list_tasks
   end
 end

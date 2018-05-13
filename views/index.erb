@@ -9,6 +9,22 @@
   </div>
 </form>
 
+<h4>Create a new Task</h4>
+<form action="/tasks" method="post">
+  <label for="list_id">Select a List</label>
+  <select id='list_id' name='list_id' type='text'>
+    <% @lists.each() do |list| %>
+      <option value="<%= list.id()%>"> <%= list.name() %> </option>
+    <% end %>
+  </select>
+
+
+  <label for="description">Description of the task:</label>
+  <input id="description" name="description" type="text">
+
+  <button class="btn btn-primary btn-sm" type="submit">Add task</button>
+</form>
+
 <h4>Your Lists:</h4>
 <ul>
   <% @lists.each() do |obj| %>
