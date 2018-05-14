@@ -13,7 +13,7 @@ describe(Task) do
     it("saves a tasks to the db array") do
       task = Task.new({:description => "testing", :list_id => 1})
       task.save()
-      expect(Taks.all()).to(eq([task]))
+      expect(Task.all()).to(eq([task]))
     end
   end
 end
