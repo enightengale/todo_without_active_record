@@ -41,6 +41,16 @@ delete("/lists/:id") do
   erb(:index)
 end
 
+post("/lists/:id/edit") do
+  @list = List.find(params.fetch("id").to_i())
+  @lists = List.all()
+  list_id = params.fetch("id").to_i()
+  description = params.fetch("description")
+  task = Task.new({:description => description, :list_id => list_id})
+  task.save()
+  erb(:list_edit)
+end
+
 post("/tasks") do
   @lists = List.all()
   description = params.fetch("description")

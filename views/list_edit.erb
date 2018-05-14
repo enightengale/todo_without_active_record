@@ -8,6 +8,14 @@
   <button class="btn btn-primary btn-sm" type="submit">Update</button>
 </form>
 
+<h4>New Task:</h4>
+<form action="/lists/<%= @list.id() %>/edit" method="post">
+  <label for="description">description of task</label>
+  <input id="description" type="text" name="description" value="">
+
+  <button class="btn btn-primary btn-sm" type="submit" name="button">create</button>
+</form>
+
 <h4>Tasks:</h4>
 <ul>
   <% @list.tasks().each() do |task| %>
